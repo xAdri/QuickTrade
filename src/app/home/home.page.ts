@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ToastController } from '@ionic/angular'
+import { IInmobiliaria, IMotor, IProducto, ITecnologia } from '../interfaces';
+
 
 @Component({
   selector: 'app-home',
@@ -11,13 +14,51 @@ export class HomePage {
   hogar: string = "hogar";
   inmobiliaria: string = "inmobiliaria";
   motor: string = "motor";
+  nombre: string;
+  precio: number;
+  descripcion: string;
+  categoria: string;
+  estado: string;
+  metros: number;
+  habitaciones: number;
+  banyos: number;
+  localidad: string;
+  vehiculo: string;
+  kilometros: number;
+
+  productos: (IProducto | ITecnologia | IInmobiliaria | IMotor)[] = [
+    {
+      "id": 1,
+      "nombre": "Teclado",
+      "categoria": "Tecnologia",
+      "precio": 15.5,
+      "descripcion": "Teclado QWERTY con puerto USB 3.0 y formato con letra castellana"
+    },
+    {
+      "id": 2,
+      "nombre": "Raton",
+      "categoria": "Tecnologia",
+      "precio": 10.5,
+      "descripcion": "Raton de hasta 2.500 dpi con rueda mecanica y leds"
+    }
+  ];
 
   mostrarOpcion: string = "";
 
   mostrarTecnologia: boolean = false;
   mostrarMotor: boolean = false;
   mostrarInmobiliaria: boolean = false;
-  constructor() { }
+
+  constructor(private _toastCtrl: ToastController) { }
+
+  async presentToast() {
+      const toast = await this._toastCtrl.create({
+      message: "El producto se ha insertado correctamente",
+      duration: 1000,
+      position:'bottom'
+    });
+    toast.present();
+  }
 
   mostrarPanel(): void {
 
@@ -47,4 +88,23 @@ export class HomePage {
 
   }
 
+  insertarProducto() {
+    this.productos.push({
+      "id": this.productos.length + 1,
+      "nombre": this.nombre,
+      "categoria": this.categoria,
+      "precio": this.precio,
+      "descripcion": this.descripcion,
+      "estado": this.estado,
+      "metros": this.metros,
+      "habitaciones": this.habitaciones,
+      "banyos": this.banyos,
+      "localidad": this.localidad,
+      "vehiculo": this.vehiculo,
+      "kilometros": this.kilometros
+    });
+
+    this.presentToast();
+
+  }
 }
