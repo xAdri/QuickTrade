@@ -1,118 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Agregar un producto
+      Menu
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="formulario">
-    <ion-item>
-      <ion-label>Nombre del producto: </ion-label>
-      <ion-input [(ngModel)] = "nombre"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Selecciona la cagetoría del producto</ion-label>
-      <ion-select [(ngModel)]="mostrarOpcion" (ngModelChange)=mostrarPanel()>
-        <ion-select-option [(ngModel)] = "categoria" value="tecnologia">Tecnología</ion-select-option>
-        <ion-select-option [(ngModel)] = "categoria" value="hogar">Hogar</ion-select-option>
-        <ion-select-option [(ngModel)] = "categoria" value="inmobiliaria">Inmobiliaria</ion-select-option>
-        <ion-select-option [(ngModel)] = "categoria" value="motor">Motor</ion-select-option>
-      </ion-select>
-    </ion-item>
-
-    <div id="tecnologia" *ngIf="mostrarTecnologia == true">
-      <div>
-        <br>
-      </div>
-
-      <ion-item>
-        <ion-label>Estado del producto</ion-label>
-        <ion-select>
-          <ion-select-option [(ngModel)] = "estado" value="perfecto">Perfecto estado</ion-select-option>
-          <ion-select-option [(ngModel)] = "estado" value="usado">Segunda mano</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-      <div>
-        <br>
-      </div>
-    </div>
-
-    <div id="inmobiliaria" *ngIf="mostrarInmobiliaria == true">
-      <div>
-        <br>
-      </div>
-
-      <ion-item>
-        <ion-label>m² de la vivienda: </ion-label>
-        <ion-input [(ngModel)] = "metros" type="number" value="" min=0></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-input [(ngModel)] = "habitaciones" type="number" value="" min=0>Habitaciones: </ion-input>
-        <ion-input [(ngModel)] = "habitaciones" type="number" value="" min=0>Baños: </ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Localidad: </ion-label>
-        <ion-input [(ngModel)] = "localidad"></ion-input>
-      </ion-item>
-
-      <div>
-        <br>
-      </div>
-    </div>
-
-    <div id="motor" *ngIf="mostrarMotor == true">
-      <div>
-        <br>
-      </div>
-
-      <ion-item>
-        <ion-label>Seleccionar vehículo</ion-label>
-        <ion-select>
-          <ion-select-option [(ngModel)] = "vehiculo" value="coche">Coche</ion-select-option>
-          <ion-select-option [(ngModel)] = "vehiculo" value="moto">Moto</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-input [(ngModel)] = "kilometros" type="number" value="" min=0>Kilómetros: </ion-input>
-        <ion-input [(ngModel)] = "anyo" type="number" value="" min=0>Año: </ion-input>
-      </ion-item>
-
-      <div>
-        <br>
-      </div>
-    </div>
-
-    <ion-item>
-      <ion-label>Precio: </ion-label>
-      <ion-input [(ngModel)] = "precio" type="number" value="" min=0></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-textarea [(ngModel)] = "descripcion" placeholder="Decribe el producto..."></ion-textarea>
-    </ion-item>
-
-    <ion-button (click)="insertarProducto()">Agregar producto!</ion-button>
-
-  </div>
-
-  <div>
-    <ion-card *ngFor="let producto of productos">
-      <ion-card-header>{{producto.nombre}} ({{producto.precio}}€)</ion-card-header>
-      <ion-card-content>
-        <ion-label>Descripción: {{producto.descripcion}}</ion-label>
-      </ion-card-content>
-    </ion-card>
-  </div>
+<ion-content>
+  <ion-button expand="block" routerLink="/lista-productos">Lista de productos</ion-button>
+  <ion-button expand="block" routerLink="/insertar-producto">Agregar productos</ion-button>
 </ion-content>
