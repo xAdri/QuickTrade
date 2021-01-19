@@ -21,7 +21,15 @@ export class ListaProductosPage implements OnInit {
   constructor(private _productosService: ProductoService) { }
 
   ngOnInit() {
-    this.productos = this._productosService.getProductos();
+    let ref = this._productosService.getProductos();
+
+    ref.once("value", snapshot => {
+      snapshot.forEach(child => {
+        let value = child.val();
+        this.productos.push(value);
+        console.log("he encontrado "+child.val().nombre)
+      })
+    })
   }
 
 }

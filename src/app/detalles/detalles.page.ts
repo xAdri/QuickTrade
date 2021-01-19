@@ -23,7 +23,7 @@ export class DetallesPage implements OnInit {
 
   ngOnInit() {
     this.id = +this._activatedRoute.snapshot.paramMap.get('id');
-    this.producto = this._productosService.getProducto(this.id);
+    //this.producto = this._productosService.getProducto(this.id);
   }
 
 }

@@ -27,6 +27,7 @@ export class InsertarProductoPage implements OnInit {
   kilometros: number;
 
   productos: (IProducto | ITecnologia | IInmobiliaria | IMotor)[] = [
+    /*
     {
       "id": 1,
       "nombre": "Teclado",
@@ -41,6 +42,7 @@ export class InsertarProductoPage implements OnInit {
       "precio": 10.5,
       "descripcion": "Raton de hasta 2.500 dpi con rueda mecanica y leds"
     }
+    */
   ];
 
   mostrarOpcion: string = "";
@@ -64,7 +66,7 @@ export class InsertarProductoPage implements OnInit {
 
   // El void Start de Unity
   ngOnInit() {
-    this.productos = this._productoService.getProductos();
+    //this.productos = this._productoService.getProductos();
   }
 
   mostrarPanel(): void {
@@ -96,20 +98,23 @@ export class InsertarProductoPage implements OnInit {
   }
 
   insertarProducto() {
-    this.productos.push({
+    let producto: (IProducto | ITecnologia | IMotor | IInmobiliaria) = ({
       "id": this.productos.length + 1,
       "nombre": this.nombre,
-      "categoria": this.categoria,
+      "categoria": this.mostrarOpcion,
       "precio": this.precio,
-      "descripcion": this.descripcion,
+      "descripcion": this.descripcion
+      /*
       "estado": this.estado,
       "metros": this.metros,
       "habitaciones": this.habitaciones,
       "banyos": this.banyos,
       "localidad": this.localidad,
       "vehiculo": this.vehiculo,
-      "kilometros": this.kilometros
+      "kilometros": this.kilometros*/
     });
+
+    this._productoService.setProducto(producto);
 
     this.presentToast();
 

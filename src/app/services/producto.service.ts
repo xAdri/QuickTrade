@@ -1,10 +1,32 @@
 import { Injectable } from "@angular/core";
+import { AngularFireDatabase } from "@angular/fire/database";
 import { IProducto, IInmobiliaria, ITecnologia, IMotor } from "../interfaces";
 
 @Injectable()
 
 export class ProductoService {
 
+    constructor(private _db: AngularFireDatabase) {
+
+    }
+
+    setProducto(producto: IProducto) {
+        let ref = this._db.database.ref("productos");
+        let res = ref.push(producto);
+        // firebase.default.database.Reference en vez de 
+        // firebase.database.Reference
+    }
+
+    getProductos(): firebase.default.database.Reference {
+        let ref = this._db.database.ref("productos");
+        return ref;
+    }
+
+    getProducto(): firebase.default.database.Reference {
+        let ref = this._db.database.ref("productos");
+        return ref;
+    }
+    /*
     productos: (IProducto | ITecnologia | IInmobiliaria | IMotor)[] = [
         {
             "id": 1,
@@ -29,4 +51,5 @@ export class ProductoService {
     getProducto(id: number) : (IProducto | ITecnologia | IInmobiliaria | IMotor){
         return this.productos.find(x => x.id == id);
     }
+    */
 }
