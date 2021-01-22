@@ -6,6 +6,27 @@
 
 <ion-content>
   <div>
+    <ion-item>
+      <ion-label>Nombre del producto: </ion-label>
+      <ion-input [(ngModel)]="nombre" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Categoria: </ion-label>
+      <ion-input [(ngModel)]="categoria" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Descripcion: </ion-label>
+      <ion-input [(ngModel)]="descripcion" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Precio: </ion-label>
+      <ion-input [(ngModel)]="precio" ></ion-input>
+    </ion-item>
+
+
     <ion-card *ngFor="let producto of productos">
       <ion-card-header>{{producto.nombre}} ({{producto.precio}}€)</ion-card-header>
       <ion-card-content>

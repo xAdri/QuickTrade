@@ -29,4 +29,37 @@ export class MisVentasPage implements OnInit {
     })
   }
 
+  // Esto es lo que deberia estar en la pagina para insertarlo no en la de puntuar
+  puntuarProducto() {
+
+    if (this.checkEnvio == "si") {
+
+      let producto: IVentas = ({
+        "nombre": this.nombre,
+        "categoria": this.categoria,
+        "precio": this.precio,
+        "descripcion": this.descripcion,
+        "enviado": this.checkEnvio
+      });
+
+      console.log(producto.nombre);
+      this._productoService.setVentas(producto);
+    }
+
+    if (this.checkEnvio == "no") {
+
+      let producto: IVentas = ({
+        "nombre": this.nombre,
+        "categoria": this.categoria,
+        "precio": this.precio,
+        "descripcion": this.descripcion,
+        "enviado": this.checkEnvio
+      });
+
+      console.log(producto.nombre);
+      this._productoService.setVentas(producto);
+    }
+
+
+
 }
