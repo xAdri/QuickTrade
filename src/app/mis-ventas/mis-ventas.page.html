@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mis Ventas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-card *ngFor="let producto of productos">
+      <ion-card-header>{{producto.nombre}} ({{producto.precio}}€)</ion-card-header>
+      <ion-card-content>
+        <ion-label>Descripción: {{producto.descripcion}}</ion-label>
+
+        <ion-button expand="block" [routerLink]="['/puntuacion',producto.key]">Puntuar!</ion-button>
+
+      </ion-card-content>
+    </ion-card>
+    <ion-button expand="block" routerLink="/home">Volver a inicio</ion-button>
+  </div>
+</ion-content>

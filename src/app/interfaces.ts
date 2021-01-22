@@ -22,3 +22,11 @@ export interface IMotor extends IProducto{
     "kilometros" : number,
     "anyo" : number
 }
+
+export interface IVentas {
+    "nombre": string,
+    "categoria": string,
+    "precio": number,
+    "descripcion": string,
+    "enviado" : string
+}

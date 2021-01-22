@@ -22,7 +22,20 @@ const routes: Routes = [
   {
     path: 'insertar-producto',
     loadChildren: () => import('./insertar-producto/insertar-producto.module').then( m => m.InsertarProductoPageModule)
+  },
+  {
+    path: 'mis-ventas',
+    loadChildren: () => import('./mis-ventas/mis-ventas.module').then( m => m.MisVentasPageModule)
+  },
+  {
+    path: 'puntuacion/:nombre',
+    loadChildren: () => import('./puntuacion/puntuacion.module').then( m => m.PuntuacionPageModule)
+  },  {
+    path: 'mis-envios',
+    loadChildren: () => import('./mis-envios/mis-envios.module').then( m => m.MisEnviosPageModule)
   }
+
+
 ];
 
 @NgModule({

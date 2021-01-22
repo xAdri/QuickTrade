@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Puntuacion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Esta enviado?</ion-label>
+    <ion-input [(ngModel)]="checkEnvio" type="string" value="">Enviado? (si-no): </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input [(ngModel)]="puntuacion" type="number" value="" min=1 max=5>Puntuacion (1-5): </ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="puntuarProducto()">Puntuar producto</ion-button>
+
+</ion-content>

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AngularFireDatabase } from "@angular/fire/database";
-import { IProducto, IInmobiliaria, ITecnologia, IMotor } from "../interfaces";
+import { IProducto, IInmobiliaria, ITecnologia, IMotor, IVentas } from "../interfaces";
 
 @Injectable()
 
@@ -20,6 +20,16 @@ export class ProductoService {
     getProductos(): firebase.default.database.Reference {
         let ref = this._db.database.ref("productos");
         return ref;
+    }
+
+    getVentas(): firebase.default.database.Reference {
+        let ref = this._db.database.ref("Mis_ventas");
+        return ref;
+    }
+
+    setVentas(producto: IVentas) {
+        let ref = this._db.database.ref("Mis_envios");
+        let res = ref.push(producto);
     }
 
     /*
