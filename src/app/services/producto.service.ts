@@ -22,10 +22,6 @@ export class ProductoService {
         return ref;
     }
 
-    getProducto(): firebase.default.database.Reference {
-        let ref = this._db.database.ref("productos");
-        return ref;
-    }
     /*
     productos: (IProducto | ITecnologia | IInmobiliaria | IMotor)[] = [
         {

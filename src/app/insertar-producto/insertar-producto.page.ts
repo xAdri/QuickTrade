@@ -25,6 +25,11 @@ export class InsertarProductoPage implements OnInit {
   localidad: string;
   vehiculo: string;
   kilometros: number;
+  anyo: number;
+
+  // Estado
+  checkEstado: string;
+  checkMotor: string;
 
   productos: (IProducto | ITecnologia | IInmobiliaria | IMotor)[] = [
     /*
@@ -98,23 +103,90 @@ export class InsertarProductoPage implements OnInit {
   }
 
   insertarProducto() {
-    let producto: (IProducto | ITecnologia | IMotor | IInmobiliaria) = ({
+
+    if (this.mostrarOpcion == this.tecnologia) {
+      this.estado = this.checkEstado;
+
+      let producto: ITecnologia = ({
+        "id": this.productos.length + 1,
+        "nombre": this.nombre,
+        "categoria": this.mostrarOpcion,
+        "precio": this.precio,
+        "descripcion": this.descripcion,
+        "estado": this.estado
+      });
+
+      console.log(producto.nombre);
+      this._productoService.setProducto(producto);
+    }
+
+    if (this.mostrarOpcion == this.hogar) {
+
+      let producto: IProducto = ({
+        "id": this.productos.length + 1,
+        "nombre": this.nombre,
+        "categoria": this.mostrarOpcion,
+        "precio": this.precio,
+        "descripcion": this.descripcion
+      });
+
+      console.log(producto.nombre);
+      this._productoService.setProducto(producto);
+    }
+
+    if (this.mostrarOpcion == this.motor) {
+      this.estado = this.checkEstado;
+
+      let producto: IMotor = ({
+        "id": this.productos.length + 1,
+        "nombre": this.nombre,
+        "categoria": this.mostrarOpcion,
+        "precio": this.precio,
+        "descripcion": this.descripcion,
+        "vehiculo": this.checkMotor,
+        "anyo": this.anyo,
+        "kilometros" : this.kilometros
+      });
+
+      console.log(producto.nombre);
+      this._productoService.setProducto(producto);
+    }
+
+    if (this.mostrarOpcion == this.inmobiliaria) {
+      this.estado = this.checkEstado;
+
+      let producto: IInmobiliaria = ({
+        "id": this.productos.length + 1,
+        "nombre": this.nombre,
+        "categoria": this.mostrarOpcion,
+        "precio": this.precio,
+        "descripcion": this.descripcion,
+        "metros" : this.metros,
+        "habitaciones": this.habitaciones,
+        "banyos" : this.banyos,
+        "localidad" : this.localidad
+      });
+
+      console.log(producto.nombre);
+      this._productoService.setProducto(producto);
+    }
+
+    /*let producto: (IProducto | ITecnologia | IMotor | IInmobiliaria) = ({
       "id": this.productos.length + 1,
       "nombre": this.nombre,
       "categoria": this.mostrarOpcion,
       "precio": this.precio,
-      "descripcion": this.descripcion
-      /*
-      "estado": this.estado,
+      "descripcion": this.descripcion,
+      "estado": this.checkEstado,
       "metros": this.metros,
       "habitaciones": this.habitaciones,
       "banyos": this.banyos,
       "localidad": this.localidad,
       "vehiculo": this.vehiculo,
-      "kilometros": this.kilometros*/
-    });
+      "kilometros": this.kilometros
+    });*/
 
-    this._productoService.setProducto(producto);
+    //this._productoService.setProducto(producto);
 
     this.presentToast();
 

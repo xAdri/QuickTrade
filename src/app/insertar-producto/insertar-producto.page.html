@@ -36,7 +36,7 @@
 
       <ion-item>
         <ion-label>Estado del producto</ion-label>
-        <ion-select>
+        <ion-select [(ngModel)]="checkEstado">
           <ion-select-option [(ngModel)]="estado" value="perfecto">Perfecto estado</ion-select-option>
           <ion-select-option [(ngModel)]="estado" value="usado">Segunda mano</ion-select-option>
         </ion-select>
@@ -59,7 +59,7 @@
 
       <ion-item>
         <ion-input [(ngModel)]="habitaciones" type="number" value="" min=0>Habitaciones: </ion-input>
-        <ion-input [(ngModel)]="habitaciones" type="number" value="" min=0>Baños: </ion-input>
+        <ion-input [(ngModel)]="banyos" type="number" value="" min=0>Baños: </ion-input>
       </ion-item>
 
       <ion-item>
@@ -79,7 +79,7 @@
 
       <ion-item>
         <ion-label>Seleccionar vehículo</ion-label>
-        <ion-select>
+        <ion-select [(ngModel)]="checkMotor">
           <ion-select-option [(ngModel)]="vehiculo" value="coche">Coche</ion-select-option>
           <ion-select-option [(ngModel)]="vehiculo" value="moto">Moto</ion-select-option>
         </ion-select>

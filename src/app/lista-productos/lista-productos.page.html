@@ -10,7 +10,7 @@
       <ion-card-header>{{producto.nombre}} ({{producto.precio}}€)</ion-card-header>
       <ion-card-content>
         <ion-label>Descripción: {{producto.descripcion}}</ion-label>
-        <ion-button expand="block" [routerLink]="['/detalles',producto.id]">Detalles del producto</ion-button>
+        <ion-button expand="block" [routerLink]="['/detalles',producto.key]">Detalles del producto</ion-button>
       </ion-card-content>
     </ion-card>
     <ion-button expand="block" routerLink="/home">Volver a inicio</ion-button>

@@ -27,9 +27,10 @@ export class ListaProductosPage implements OnInit {
       snapshot.forEach(child => {
         let value = child.val();
         this.productos.push(value);
-        console.log("he encontrado "+child.val().nombre)
+        console.log("he encontrado " + child.val().nombre)
       })
     })
   }
 
 }
+export default ListaProductosPage;
