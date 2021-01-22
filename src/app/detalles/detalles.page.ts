@@ -41,19 +41,6 @@ export class DetallesPage implements OnInit {
     })
   }
 
-  /*
-  ngOnInit() {
-    //this.productos = this._productosService.getProductos();
-    let ref = this._productosService.getMeGustas();
-    ref.once("value", snapshot => {
-      snapshot.forEach(child => {
-        let value = child.val();
-        this.megustas.push(value);
-        console.log("he encontrado " + child.val().nombre_prod);
-      })
-    })
-  }*/
-
   /*ngOnInit() {
     //this.id = +this._activatedRoute.snapshot.paramMap.get('id');
     //this.producto = this._productosService.getProducto(this.id);
